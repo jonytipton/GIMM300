@@ -19,3 +19,15 @@ hr {
   margin: auto;
   border-radius: 50%;
 }
+
+#pup {
+  animation-name: getIt;
+  animation-duration: infinite;
+  position: relative;
+}
+
+@keyframes getIt {
+  0% {
+    top: 0;
+  }
+}
