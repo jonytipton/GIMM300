@@ -1,2 +1,3 @@
 <?php
-(require Test.html)
+require('Test.html');
+?>
