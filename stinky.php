@@ -1,5 +1,2 @@
 <?php
-
-
-
-?php>
+(require Test.html)
