@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
+import MerchantsForm from './MerchantsForm';
+import MerchantsTable from './MerchantsTable';
 
-export default function Merchants() {
-
-    return(
-        <form>
-            <input type="text" placeholder="Merchant's ID" name="merchantId" />
-            <input type="text" placeholder="MerchantName" name="merchantName" />
-            <input type="text" placeholder="Merchant's Address" name="merchantAddress" />
-            <input type="text" placeholder="Yes/No" name="isStocked" />
-
-        </form>
-    )
+function Merchants() {
+  return (
+    <div>
+        <MerchantsForm/>
+        <MerchantsTable/>
+    </div>
+  );
 }
+
+export default Merchants;
