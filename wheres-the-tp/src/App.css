@@ -18,3 +18,14 @@ nav{
   align-items: center;
   list-style: none;
 }
+
+h1{
+  padding: 5%;
+}
+
+p{
+  padding-bottom: 5%;
+  width: 80%;
+  margin: 0 auto;
+  line-height: 2;
+}
