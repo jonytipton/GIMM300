@@ -5,7 +5,7 @@ class MerchantsForm extends React.Component {
 
     childFunction=(e)=>{
         e.preventDefault();
-        this.props.functionCallFromParent(e.currentTarget);
+        this.props.getNewMerchant(e.currentTarget);
     }
 
     render(){

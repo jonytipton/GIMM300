@@ -10,41 +10,39 @@ class Merchants extends React.Component{
         this.state = {
             merchants: [
                 {
-                    merchantID: 'TarJay231',
-                    merchantName: 'Target Store 231',
-                    merchantAddress: 'Targee Rd',
-                    isStocked: false
+                    id: 'TarJay231',
+                    name: 'Target Store 231',
+                    address: 'Targee Rd',
+                    stock: false
                 },
                 {
-                    merchantID: 'Alb23',
-                    merchantName: 'Albertsons Store 145',
-                    merchantAddress: 'Overland',
-                    isStocked: false
+                    id: 'Alb23',
+                    name: 'Albertsons Store 145',
+                    address: 'Overland',
+                    stock: false
                 }
             ]
         };
     }
 
 
-    parentFunction=(data_from_child)=>{
-        //console.log(data_from_child.merchantName.value);
-        //this.newMerchant.merchantID = data_from_child.merchantId.value;
+    newMerchant=(merchantData)=>{
+        this.setState({merchants:merchantData});
+        //this is logging correctly but i cant capture it in the merchants object
+        console.log(merchantData.merchantAddress.value)
 
-        this.setState({merchants:data_from_child});
-        //console.log(this.newMerchant.merchantId);
     }
    
     render(){
         return(
             <div>
-                <MerchantsForm functionCallFromParent={this.parentFunction.bind(this)}/>
+                <MerchantsForm getNewMerchant={this.newMerchant.bind(this)}/>
                 
+                <h3>{merchantData.merchantAddress.value}</h3>
                
             </div>
         );      
     }
-// <Todos merchants={this.state.merchants} />
-
 }
 
 export default Merchants
