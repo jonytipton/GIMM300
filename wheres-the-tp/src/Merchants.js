@@ -6,7 +6,9 @@ import config from "./config";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    Firebase.initializeApp(config);
+    if(!Firebase.apps.length) {
+        Firebase.initializeApp(config);
+    }
 
     this.state = {
       developers: []
@@ -85,7 +87,7 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-xl-12">
-              <h1>Firebase Development Team</h1>
+              <h1>Merchant Stock Form</h1>
             </div>
           </div>
           <div className="row">
@@ -118,7 +120,7 @@ class App extends React.Component {
           </div>
           <div className="row">
             <div className="col-xl-12">
-              <h1>Add new team member here</h1>
+              <h1>Add new stock levels here</h1>
               <form onSubmit={this.handleSubmit}>
                 <div className="form-row">
                   <input type="hidden" ref="uid" />
@@ -149,12 +151,6 @@ class App extends React.Component {
           </div>
           <div className="row">
             <div className="col-xl-12">
-              <h3>
-                Tutorial{" "}
-                <a href="https://sebhastian.com/react-firebase-real-time-database-guide">
-                  here
-                </a>
-              </h3>
             </div>
           </div>
         </div>
