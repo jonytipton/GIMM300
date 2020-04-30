@@ -1,6 +1,7 @@
 import React from "react";
 import Firebase from "firebase";
 import config from "./config";
+import {Link} from 'react-router-dom';
 
 let isDisabled = true;
 
@@ -98,15 +99,15 @@ class App extends React.Component {
     this.forceUpdate();        
   }
 
-
+//todo either make yes/no the only possible answers or get radio boxes working
   render() {
     const { developers } = this.state;
     return (
       <div>
-        <div className={!isDisabled ? 'invisible' : null}>
-          <div className="col-xl-12">
+        <div className="col-xl-12">
             <h1>Merchant Stock Form</h1>
           </div>
+        <div className={!isDisabled ? 'invisible' : null}>       
           <div>            
             <div className="card">
               <form onSubmit={this.verifyKey.bind(this)}>
@@ -118,11 +119,18 @@ class App extends React.Component {
                 >Verify</button>
                 </label>
               </form>
+              <div>
+                <ul className = 'call-out-link'>
+                <Link to = '/get-key'>
+                <li>Need a key?</li>
+                </Link>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
         
-      <React.Fragment>
+      <React.Fragment> 
         <div className={isDisabled ? 'invisible' : null}>
         <div className="container">
           <div className="row">

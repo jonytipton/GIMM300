@@ -58,9 +58,26 @@ form label{
 }
 
 .invisible{
-  display: none;
+  overflow: hidden;
+        visibility: hidden;
+        height: 0;
+        width: 0;
 }
 
 .red{
   color: red;
+}
+
+.call-out-link{
+  text-align: center;
+  width: 40%;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.get-key p{
+  margin: 10% auto 0%;
+}
+.get-key ul{
+  margin: 0 auto;
 }
