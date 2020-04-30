@@ -1,7 +1,8 @@
 import React from "react";
-
 import Firebase from "firebase";
 import config from "./config";
+
+let isDisabled = true;
 
 class App extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class App extends React.Component {
       developers: []
     };
   }
+
 
   componentDidMount() {
     this.getUserData();
@@ -42,6 +44,7 @@ class App extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+
     let name = this.refs.name.value;
     let role = this.refs.role.value;
     let uid = this.refs.uid.value;
@@ -80,10 +83,39 @@ class App extends React.Component {
     this.refs.role.value = developer.role;
   };
 
+
+  verifyKey = (e) => {
+    e.preventDefault();
+    
+    if(e.currentTarget.accessKey.value === 'pug life'){
+      isDisabled = false;
+    } else{
+      isDisabled = true;
+    }
+    this.forceUpdate();        
+  }
+
+
   render() {
     const { developers } = this.state;
     return (
-      <React.Fragment>
+      <div>
+        <div>
+                        
+        <div className="card">
+         <form onSubmit={this.verifyKey.bind(this)}>
+         <label className="card-body">
+           <h3>Please Enter Access Key Before Editing</h3>
+           <input type="text" placeholder="Key" name="accessKey"/>
+           <button
+             type="submit"
+             //todo validate the key, if good enable other buttons
+             >Verify</button>
+         </label>
+         </form>
+     </div>
+        </div>
+      <React.Fragment>   
         <div className="container">
           <div className="row">
             <div className="col-xl-12">
@@ -99,17 +131,21 @@ class App extends React.Component {
                   style={{ width: "18rem", marginRight: "1rem" }}
                 >
                   <div className="card-body">
-                    <h5 className="card-title">{developer.name}</h5>
-                    <p className="card-text">{developer.role}</p>
+                    <h5 className="card-title" /*change style w/o key*/ >{developer.name}</h5>
+                    <p className="card-text" /*change style w/o key*/ >{developer.role}</p> 
                     <button
+                    //disable if key not entered
+                      disabled = {isDisabled}
                       onClick={() => this.removeData(developer)}
-                      className="btn btn-link"
+                      className="btn btn-link" //change style w/o key
                     >
                       Delete
                     </button>
                     <button
+                    //disable if key not entered
+                      disabled = {isDisabled}
                       onClick={() => this.updateData(developer)}
-                      className="btn btn-link"
+                      className="btn btn-link" //change style w/o key
                     >
                       Edit
                     </button>
@@ -121,12 +157,13 @@ class App extends React.Component {
           <div className="row">
             <div className="col-xl-12">
               <h1>Add new stock levels here</h1>
-              <form onSubmit={this.handleSubmit}>
+              <form onSubmit={this.handleSubmit}>       
                 <div className="form-row">
                   <input type="hidden" ref="uid" />
                   <div className="form-group col-md-6">
                     <label>Name</label>
                     <input
+                      disabled = {isDisabled}
                       type="text"
                       ref="name"
                       className="form-control"
@@ -136,6 +173,7 @@ class App extends React.Component {
                   <div className="form-group col-md-6">
                     <label>Role</label>
                     <input
+                      disabled = {isDisabled}
                       type="text"
                       ref="role"
                       className="form-control"
@@ -143,7 +181,7 @@ class App extends React.Component {
                     />
                   </div>
                 </div>
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" value = "Submit" name = "submit" disabled = {isDisabled} className="btn btn-primary">
                   Save
                 </button>
               </form>
@@ -155,6 +193,9 @@ class App extends React.Component {
           </div>
         </div>
       </React.Fragment>
+
+      </div>
+      
     );
   }
 }
