@@ -171,7 +171,7 @@ class App extends React.Component {
           </div>
           <div className="row">
             <div className="col-xl-12">
-              <h2>Add Your Stock Data</h2>
+              <h2>Add New Stock Data</h2>
               <form onSubmit={this.handleSubmit}>       
                 <div className="form-row">
                   <input type="hidden" ref="uid" />

@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import {Link} from 'react-router-dom';
+import logo from './img/tp.png'
 
 function Nav() {
 
@@ -11,7 +12,7 @@ function Nav() {
 
   return (
     <nav>
-        <h3>Logo</h3>
+        <img className = "logo" src={logo}></img>
         <ul className="nav-links">
         <Link style={navStyle} to = '/tp-locator'>
                 <li>TPLocator</li>

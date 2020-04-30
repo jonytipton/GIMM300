@@ -45,7 +45,7 @@ class Tplocator extends React.Component {
   render() {
     const { developers } = this.state;
     return (
-      <React.Fragment>
+        <div className="img">
         <div className="row">
           <div className="col-xl-12">
             <div>
@@ -67,7 +67,7 @@ class Tplocator extends React.Component {
             ))}
           </div>
         </div>
-      </React.Fragment>
+        </div>
     );
   }
 }
