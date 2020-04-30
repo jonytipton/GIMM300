@@ -103,25 +103,27 @@ class App extends React.Component {
     const { developers } = this.state;
     return (
       <div>
-        <div className="col-xl-12">
-              <h1>Merchant Stock Form</h1>
+        <div className={!isDisabled ? 'invisible' : null}>
+          <div className="col-xl-12">
+            <h1>Merchant Stock Form</h1>
+          </div>
+          <div>            
+            <div className="card">
+              <form onSubmit={this.verifyKey.bind(this)}>
+                <label className="card-body">
+                <h3>Please Enter Access Key Before Editing</h3>
+                <input type="password" placeholder="Key" name="accessKey"/>
+                <button
+                type="submit"
+                >Verify</button>
+                </label>
+              </form>
             </div>
-        <div>            
-        <div className="card">
-         <form onSubmit={this.verifyKey.bind(this)}>
-         <label className="card-body">
-           <h3>Please Enter Access Key Before Editing</h3>
-           <input type="password" placeholder="Key" name="accessKey"/>
-           <button
-             type="submit"
-             
-             >Verify</button>
-         </label>
-         </form>
-     </div>
+          </div>
         </div>
+        
       <React.Fragment>
-        <div className={isDisabled ? 'faded' : null}>
+        <div className={isDisabled ? 'invisible' : null}>
         <div className="container">
           <div className="row">
             <div className="col-xl-12">
