@@ -46,26 +46,29 @@ class App extends React.Component {
     event.preventDefault();
 
     let name = this.refs.name.value;
-    let role = this.refs.role.value;
+    let stock = this.refs.stock.value;
+    let address = this.refs.address.value;
     let uid = this.refs.uid.value;
 
-    if (uid && name && role) {
+    if (uid && name && stock && address) {
       const { developers } = this.state;
       const devIndex = developers.findIndex(data => {
         return data.uid === uid;
       });
       developers[devIndex].name = name;
-      developers[devIndex].role = role;
+      developers[devIndex].stock = stock;
+      developers[devIndex].address = address;
       this.setState({ developers });
-    } else if (name && role) {
+    } else if (name && stock && address) {
       const uid = new Date().getTime().toString();
       const { developers } = this.state;
-      developers.push({ uid, name, role });
+      developers.push({ uid, name, stock, address });
       this.setState({ developers });
     }
 
     this.refs.name.value = "";
-    this.refs.role.value = "";
+    this.refs.stock.value = "";
+    this.refs.address.value = "";
     this.refs.uid.value = "";
   };
 
@@ -80,13 +83,13 @@ class App extends React.Component {
   updateData = developer => {
     this.refs.uid.value = developer.uid;
     this.refs.name.value = developer.name;
-    this.refs.role.value = developer.role;
+    this.refs.stock.value = developer.stock;
+    this.refs.address.value = developer.address;
   };
 
 
   verifyKey = (e) => {
     e.preventDefault();
-    
     if(e.currentTarget.accessKey.value === 'pug life'){
       isDisabled = false;
     } else{
@@ -100,26 +103,29 @@ class App extends React.Component {
     const { developers } = this.state;
     return (
       <div>
-        <div>
-                        
+        <div className="col-xl-12">
+              <h1>Merchant Stock Form</h1>
+            </div>
+        <div>            
         <div className="card">
          <form onSubmit={this.verifyKey.bind(this)}>
          <label className="card-body">
            <h3>Please Enter Access Key Before Editing</h3>
-           <input type="text" placeholder="Key" name="accessKey"/>
+           <input type="password" placeholder="Key" name="accessKey"/>
            <button
              type="submit"
-             //todo validate the key, if good enable other buttons
+             
              >Verify</button>
          </label>
          </form>
      </div>
         </div>
-      <React.Fragment>   
+      <React.Fragment>
+        <div className={isDisabled ? 'faded' : null}>
         <div className="container">
           <div className="row">
             <div className="col-xl-12">
-              <h1>Merchant Stock Form</h1>
+              <h2>Adjust Your Stock Data</h2>
             </div>
           </div>
           <div className="row">
@@ -131,21 +137,20 @@ class App extends React.Component {
                   style={{ width: "18rem", marginRight: "1rem" }}
                 >
                   <div className="card-body">
-                    <h5 className="card-title" /*change style w/o key*/ >{developer.name}</h5>
-                    <p className="card-text" /*change style w/o key*/ >{developer.role}</p> 
+                    <h5 className="card-title" >{developer.name}</h5>
+                    <p className="card-text"  >In Stock: {developer.stock}</p>
+                    <p className="card-text"  >Address: <br/>{developer.address}</p>  
                     <button
-                    //disable if key not entered
                       disabled = {isDisabled}
                       onClick={() => this.removeData(developer)}
-                      className="btn btn-link" //change style w/o key
+                      className="btn btn-link" 
                     >
                       Delete
                     </button>
                     <button
-                    //disable if key not entered
                       disabled = {isDisabled}
                       onClick={() => this.updateData(developer)}
-                      className="btn btn-link" //change style w/o key
+                      className="btn btn-link" 
                     >
                       Edit
                     </button>
@@ -156,12 +161,12 @@ class App extends React.Component {
           </div>
           <div className="row">
             <div className="col-xl-12">
-              <h1>Add new stock levels here</h1>
+              <h2>Add Your Stock Data</h2>
               <form onSubmit={this.handleSubmit}>       
                 <div className="form-row">
                   <input type="hidden" ref="uid" />
                   <div className="form-group col-md-6">
-                    <label>Name</label>
+                    <label>Merchant Name</label>
                     <input
                       disabled = {isDisabled}
                       type="text"
@@ -171,15 +176,26 @@ class App extends React.Component {
                     />
                   </div>
                   <div className="form-group col-md-6">
-                    <label>Role</label>
+                    <label>Merchant Address</label>
                     <input
                       disabled = {isDisabled}
                       type="text"
-                      ref="role"
+                      ref="address"
                       className="form-control"
-                      placeholder="Role"
+                      placeholder="1111 North St. Boise, ID"
                     />
                   </div>
+                  <div className="form-group col-md-12">
+                    <label>Is there toilet paper?</label>
+                    <input
+                      disabled = {isDisabled}
+                      type="text"
+                      ref="stock"
+                      className="form-control"
+                      placeholder="Yes/No"
+                    />
+                  </div>
+                  
                 </div>
                 <button type="submit" value = "Submit" name = "submit" disabled = {isDisabled} className="btn btn-primary">
                   Save
@@ -192,6 +208,8 @@ class App extends React.Component {
             </div>
           </div>
         </div>
+        </div>   
+        
       </React.Fragment>
 
       </div>

@@ -22,6 +22,9 @@ nav{
 h1{
   padding: 5%;
 }
+h2{
+  padding: 3%;
+}
 
 p{
   padding-bottom: 5%;
@@ -43,4 +46,17 @@ form label{
 
 .preventEdit h3{
   margin-top: 10%;
+}
+
+.radio-button{
+  display: inline;
+  margin: 10px;
+}
+
+.tp-stock{
+  margin: 30px auto;
+}
+
+.faded{
+  color: #949393;
 }
