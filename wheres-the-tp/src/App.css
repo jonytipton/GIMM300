@@ -1,13 +1,15 @@
 .App{
   text-align: center;
+  height: 100%;
 }
+
 
 nav{
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background: #5d40c5;
+  background: #6d50d4;
   color: white;
 }
 
@@ -38,12 +40,6 @@ form label{
   margin: 10px;
 }
 
-.preventEdit{
-  width: 50%;
-  box-shadow: 3px 3px 10px #888888;
-  margin: 10% auto;
-}
-
 .preventEdit h3{
   margin-top: 10%;
 }
@@ -68,12 +64,7 @@ form label{
   color: red;
 }
 
-.call-out-link{
-  text-align: center;
-  width: 40%;
-  margin: 0 auto;
-  list-style: none;
-}
+
 
 .get-key p{
   margin: 10% auto 0%;
@@ -83,5 +74,72 @@ form label{
 }
 
 .logo{
-  width: 5%;
+  width: 10%;
+
+}
+
+.fix-bg{
+  background-color:hsla(100,100%,100%,0);
+}
+
+.merchant-card{
+  width: 80%;
+  margin: 5% auto;
+  box-shadow: 3px 3px 10px #9e9e9e;
+  border-radius: 3%;
+}
+
+/********* About Us Page Styles *********/
+.about-us p{
+  text-align: left;
+}
+
+.friends-img{
+  width: 80%;
+  margin: 5% auto 10%;
+}
+
+.about-us footer{
+  background-color: #6d50d4;
+  color: white;
+}
+
+.about-us small{
+  padding: 0;
+}
+
+/******** Acesss Key Card ********/
+
+.access-card{
+  width: 80%;
+  margin: 0 auto;
+  box-shadow: 3px 3px 10px #9e9e9e;
+  border-radius: 3%;
+}
+
+.access-card h3{
+  font-size: 120%;
+  padding-bottom: 5%;
+  padding-top: 5%;
+}
+
+.call-out-link{
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.call-out-link li{
+  padding-bottom: 10%;
+  list-style: none;
+}
+
+.card-body{
+  padding: 10%;
+}
+
+/************ Navigation Styles ***********/
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.75);
 }

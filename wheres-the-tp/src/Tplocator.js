@@ -49,14 +49,14 @@ class Tplocator extends React.Component {
         <div className="row">
           <div className="col-xl-12">
             <div>
-              <h2>Places with toilet Paper</h2>
+            <h1>Locations with Toilet Paper</h1>
+            <hr/>
             </div>
             {developers.map(developer => (
               <div className={developer.stock === 'No' ? "invisible" : null}>
                 <div
                   key={developer.uid}
-                  className="card float-left"
-                  style={{ width: "18rem", marginRight: "1rem" }}
+                  className="card merchant-card"
                   >
                   <div className="card-body">
                     <h5 className="card-title" >{developer.name}</h5>

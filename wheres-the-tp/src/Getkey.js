@@ -8,7 +8,7 @@ function Getkey() {
         <div className = 'get-key'>
         
         <p>Need a key to enter your inventory? Email us at TPFrenzy@gmail.com</p>
-        <ul className="nav-links">
+        <ul className="call-out-link">
         <Link to = '/merchants'>
                 <li>Back to Merchants</li>
             </Link>

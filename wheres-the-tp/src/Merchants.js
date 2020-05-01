@@ -106,21 +106,22 @@ class App extends React.Component {
       <div>
         <div className="col-xl-12">
             <h1>Merchant Stock Form</h1>
-          </div>
+            <hr/>
+        </div>
         <div className={!isDisabled ? 'invisible' : null}>       
           <div>            
-            <div className="card">
+            <div className="access-card">
               <form onSubmit={this.verifyKey.bind(this)}>
                 <label className="card-body">
                 <h3>Please Enter Access Key Before Editing</h3>
-                <input type="password" placeholder="Key" name="accessKey"/>
+                <input clasName = "fix-bg" type="password" placeholder="Key" name="accessKey"/>
                 <button
                 type="submit"
                 >Verify</button>
                 </label>
               </form>
               <div>
-                <ul className = 'call-out-link'>
+                <ul  className = 'call-out-link'>
                 <Link to = '/get-key'>
                 <li>Need a key?</li>
                 </Link>
@@ -136,15 +137,16 @@ class App extends React.Component {
           <div className="row">
             <div className="col-xl-12">
               <h2>Adjust Your Stock Data</h2>
+
             </div>
+
           </div>
           <div className="row">
             <div className="col-xl-12">
               {developers.map(developer => (
                 <div
                   key={developer.uid}
-                  className="card float-left"
-                  style={{ width: "18rem", marginRight: "1rem" }}
+                  className="merchant-card"
                 >
                   <div className="card-body">
                     <h5 className="card-title" >{developer.name}</h5>
@@ -170,7 +172,8 @@ class App extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-xl-12">
+            <div style={{margin: '10%'}} className="col-xl-12">
+              <hr/>
               <h2>Add New Stock Data</h2>
               <form onSubmit={this.handleSubmit}>       
                 <div className="form-row">
