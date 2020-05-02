@@ -23,9 +23,11 @@ nav{
 
 h1{
   padding: 5%;
+  color: black;
 }
 h2{
   padding: 3%;
+  color: black;
 }
 
 p{
@@ -33,6 +35,7 @@ p{
   width: 80%;
   margin: 0 auto;
   line-height: 2;
+  color: black;
 }
 
 form label{
@@ -65,10 +68,38 @@ form label{
   color: red;
 }
 
+#firebase-fire{
+  height:0;
+  width:0;
+  color:black;
+  margin: 0;
+}
 
+#firebase-air{
+  height:0;
+  width:0;
+  color:black;
+  margin: 0;
+}
+
+#firebase-earth{
+  height:0;
+  width:0;
+  color:black;
+  margin: 0;
+}
+
+#firebase-water{
+  height:0;
+  width:0;
+  color:black;
+  margin: 0;
+  background-color: white;
+}
 
 .get-key p{
   margin: 10% auto 0%;
+  color: black;
 }
 .get-key ul{
   margin: 0 auto;
