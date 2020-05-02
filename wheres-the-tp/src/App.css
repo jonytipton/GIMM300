@@ -145,3 +145,22 @@ form label{
 .navbar-light .navbar-nav .nav-link {
   color: rgba(255, 255, 255, 0.75);
 }
+
+@media screen and (min-width: 600px){
+  .access-card{
+    width: 50%;
+  }
+  .merchant-card{
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 800px){
+  .access-card{
+    width: 30%;
+  }
+
+  .merchant-card{
+    width: 30%;
+  }
+}

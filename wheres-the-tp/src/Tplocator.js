@@ -53,7 +53,7 @@ class Tplocator extends React.Component {
             <hr/>
             </div>
             {developers.map(developer => (
-              <div className={developer.stock === 'No' ? "invisible" : null}>
+              <div className={(developer.stock === 'No' || developer.stock === 'no' || developer.stock === 'N' || developer.stock === 'n' || developer.stock === 'None' || developer.stock === 'nope' || developer.stock === 'nah' || developer.stock === 'none') ? "invisible" : null}>
                 <div
                   key={developer.uid}
                   className="card merchant-card"
